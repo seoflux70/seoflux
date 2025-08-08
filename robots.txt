@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://seoflux70.github.io/seoflux/sitemap.xml
