@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEOFlux – Free SEO Audit Tool</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Get a free, instant SEO audit for your website with SEOFlux. Analyze your on-page SEO, discover technical issues, and get actionable insights to boost your rankings.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="keywords" content="SEO audit, SEO checker, free SEO tool, website analysis, SEO report, search engine optimization">
+  <meta name="author" content="SEOFlux">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#2563eb"> 
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.YOUR-WEBSITE-URL.com/">
+  <meta property="og:title" content="SEOFlux – Free SEO Audit Tool">
+  <meta property="og:description" content="Get a free, instant SEO audit for your website. Analyze on-page SEO, discover technical issues, and get actionable insights to boost your rankings.">
+  <meta property="og:image" content="https://www.YOUR-WEBSITE-URL.com/hero-image.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.YOUR-WEBSITE-URL.com/">
+  <meta property="twitter:title" content="SEOFlux – Free SEO Audit Tool">
+  <meta property="twitter:description" content="Get a free, instant SEO audit for your website. Analyze on-page SEO, discover technical issues, and get actionable insights to boost your rankings.">
+  <meta property="twitter:image" content="https://www.YOUR-WEBSITE-URL.com/hero-image.jpg">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    button { transition: background-color .2s ease-in-out; }
+    .hero-bg { background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1350&q=80'); }
+    
+    /* Styles for the Accordion Report */
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+    .accordion-header .arrow {
+        transition: transform 0.3s ease-out;
+    }
+    .accordion-header.open .arrow {
+        transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  
+  <!-- Header -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-gray-900">SEOFlux</h1>
+      <nav>
+        <a href="#features" class="mx-3 text-gray-600 hover:text-gray-900">Features</a>
+        <!-- NEW LINK ADDED HERE -->
+        <a href="#improvements" class="mx-3 text-gray-600 hover:text-gray-900">Tips</a>
+        <a href="#about" class="mx-3 text-gray-600 hover:text-gray-900">About</a>
+        <a href="mailto:seoflux70@gmail.com" class="mx-3 text-gray-600 hover:text-gray-900">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section with Form -->
+  <section class="hero-bg relative bg-cover bg-center">
+    <div class="bg-gradient-to-b from-black/70 to-black/40 pt-20 pb-28 md:pt-28 md:pb-32 text-center text-white backdrop-blur-sm">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">Boost Your Website Rankings</h2>
+        <p class="max-w-2xl mx-auto text-lg mb-8">Instantly analyze your site with our powerful SEO auditing tool and improve your online visibility.</p>
+
+        <!-- SEO Audit Form -->
+        <form id="audit-form" class="max-w-xl mx-auto">
+          <div class="flex bg-white rounded-lg overflow-hidden shadow-2xl">
+            <input type="url" id="url-input" placeholder="https://example.com" class="flex-grow p-4 outline-none text-gray-800" required>
+            <button type="submit" id="submit-button" class="bg-blue-600 text-white px-6 md:px-8 py-3 font-semibold hover:bg-blue-700">Start Free Audit</button>
+          </div>
+        </form>
+        
+        <p class="mt-4 text-sm opacity-90">No signup required. 100% free basic audit.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section for Messages and the Final Report -->
+  <section id="report-section" class="container mx-auto px-6 py-10">
+    <div id="message-container" class="max-w-3xl mx-auto text-center"></div>
+    <div id="report-container" class="max-w-3xl mx-auto mt-6"></div>
+  </section>
+
+
+  <!-- Features Section -->
+  <section id="features" class="container mx-auto px-6 py-20">
+    <h3 class="text-3xl font-bold mb-10 text-center">Powerful SEO Features</h3>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+      <div class="p-6 bg-white rounded-lg shadow-sm">
+        <div class="text-4xl mb-4">🔍</div>
+        <h4 class="font-semibold text-lg mb-2">Comprehensive Audits</h4>
+        <p class="text-gray-500 text-sm">Analyze every aspect of your website’s on-page SEO performance.</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow-sm">
+        <div class="text-4xl mb-4">⚡</div>
+        <h4 class="font-semibold text-lg mb-2">Fast Analysis</h4>
+        <p class="text-gray-500 text-sm">Quickly discover issues that could be affecting your rankings.</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow-sm">
+        <div class="text-4xl mb-4">📈</div>
+        <h4 class="font-semibold text-lg mb-2">Actionable Insights</h4>
+        <p class="text-gray-500 text-sm">Get clear advice on how to improve your site's visibility.</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow-sm flex flex-col">
+        <div class="text-4xl mb-4">🔗</div>
+        <h4 class="font-semibold text-lg mb-2">Backlink Checker</h4>
+        <p class="text-gray-500 text-sm flex-grow">The most accurate way to check your backlinks is with Google's own free tool.</p>
+        <a href="https://search.google.com/search-console/about" target="_blank" rel="noopener" class="mt-4 inline-block bg-green-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-600">
+          Go to Google Search Console
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW "SUGGESTIONS FOR IMPROVEMENTS" SECTION ADDED HERE -->
+  <section class="bg-gray-100">
+    <div class="container mx-auto px-6 py-20" id="improvements">
+      <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
+        <h3 class="text-3xl font-bold mb-6 text-center text-gray-800">Key Areas for SEO Success</h3>
+        <p class="text-center text-gray-500 mb-8">Our tool checks for these common issues and more. Use this list as a guide to improve your website's performance.</p>
+        <ul class="list-disc list-inside text-gray-700 space-y-3">
+          <li>Add a <strong>canonical tag</strong> to every page to avoid duplicate content issues with search engines.</li>
+          <li>Ensure all <strong>image alt tags</strong> are descriptive to improve accessibility and image search rankings.</li>
+          <li>Write a compelling <strong>H1 heading</strong> that includes your primary target keywords.</li>
+          <li>Make sure your page's <strong>meta description</strong> is engaging and encourages users to click from search results.</li>
+          <li>Compress and optimize large images to improve your site's <strong>loading speed</strong> and Core Web Vitals.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="bg-white py-20">
+    <div class="container mx-auto px-6 max-w-4xl text-center">
+      <h3 class="text-3xl font-bold mb-6 text-gray-800">About SEOFlux</h3>
+      <p class="text-gray-600 leading-relaxed mb-4">
+        SEOFlux was born from a simple idea: powerful SEO tools should be accessible to everyone. Whether you're a small business owner, a blogger, or a digital marketing professional, our goal is to provide you with clear, actionable insights to improve your website's visibility and climb the search engine rankings.
+      </p>
+      <p class="text-gray-600 leading-relaxed">
+        Our free audit tool is the first step in that mission. It performs a comprehensive on-page analysis, checking the critical factors that search engines like Google use to rank pages. We believe in empowering our users with data, helping them make informed decisions to grow their online presence.
+      </p>
+    </div>
+  </section>
+
+  <!-- Trusted By Section -->
+  <section class="bg-gray-100 py-12">
+    <div class="container mx-auto text-center">
+      <h3 class="text-2xl font-bold mb-6 text-gray-700">Trusted By</h3>
+      <div class="flex flex-wrap justify-center items-center space-x-8 opacity-70">
+        <!-- SEO Reminder: When using real logos, change alt text to be descriptive, e.g., alt="Logo of Microsoft" -->
+        <img src="https://via.placeholder.com/120x40?text=Brand+1" alt="Brand 1" class="m-2">
+        <img src="https://via.placeholder.com/120x40?text=Brand+2" alt="Brand 2" class="m-2">
+        <img src="https://via.placeholder.com/120x40?text=Brand+3" alt="Brand 3" class="m-2">
+        <img src="https://via.placeholder.com/120x40?text=Brand+4" alt="Brand 4" class="m-2">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white py-6 border-t">
+    <div class="container mx-auto text-center text-gray-500">
+      © 2025 SEOFlux — All Rights Reserved
+    </div>
+  </footer>
+
+  <!-- JavaScript Logic -->
+  <script>
+    const auditForm = document.getElementById('audit-form');
+    const urlInput = document.getElementById('url-input');
+    const submitButton = document.getElementById('submit-button');
+    const messageContainer = document.getElementById('message-container');
+    const reportContainer = document.getElementById('report-container');
+    
+    // --- MAIN EVENT LISTENER ---
+    auditForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
+        const url = urlInput.value;
+        if (!url) return;
+
+        submitButton.disabled = true;
+        submitButton.innerText = 'Analyzing...';
+        reportContainer.innerHTML = '';
+        messageContainer.innerHTML = `<div class="bg-blue-100 text-blue-800 p-4 rounded-lg shadow-md">Please wait, we are auditing your website...</div>`;
+        document.getElementById('report-section').scrollIntoView();
+
+        const proxyUrl = 'https://api.allorigins.win/raw?url=';
+        const fetchUrl = `${proxyUrl}${encodeURIComponent(url)}`;
+      
+        try {
+            const response = await fetch(fetchUrl);
+            if (!response.ok) throw new Error(`Network response was not ok. Status: ${response.status}`);
+            const html = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            
+            messageContainer.innerHTML = ''; // Clear loading message
+            runAnalysisAndDisplayReport(doc, url);
+
+        } catch (error) {
+            console.error('Fetch Error:', error);
+            messageContainer.innerHTML = `<div class="bg-red-100 text-red-700 p-4 rounded-lg shadow-md"><strong>Error:</strong> Could not fetch data for this URL. It might be blocking bots or the server is down.</div>`;
+        } finally {
+            submitButton.disabled = false;
+            submitButton.innerText = 'Start Free Audit';
+        }
+    });
+
+    // --- ANALYSIS & DISPLAY ---
+    function runAnalysisAndDisplayReport(doc, url) {
+        let tests = [];
+        const domain = new URL(url).hostname;
+
+        const results = {
+            title: checkTitle(doc, tests),
+            description: checkDescription(doc, tests),
+            headings: checkHeadings(doc, tests),
+            imageAlts: checkImageAlts(doc, tests),
+            textRatio: checkTextRatio(doc, tests),
+            links: checkLinks(doc, domain, url, tests),
+            socialTags: checkSocialTags(doc, tests),
+            lang: checkLang(doc, tests),
+            canonical: checkCanonical(doc, tests),
+            indexability: checkIndexability(doc, tests),
+            doctype: checkDoctype(doc, tests),
+            viewport: checkViewport(doc, tests)
+        };
+
+        const passedTests = tests.filter(t => t === 'pass').length;
+        results.overallScore = Math.round((passedTests / tests.length) * 100);
+
+        displayReport(results);
+    }
+    
+    // --- INDIVIDUAL CHECKER FUNCTIONS ---
+    // Each function returns a result object and pushes 'pass' or 'fail' to the tests array
+    const checkTitle = (doc, tests) => {
+        const title = doc.querySelector('title');
+        if (!title || !title.innerText) { tests.push('fail'); return { status: 'fail', text: 'Missing title tag.' }; }
+        const len = title.innerText.length;
+        if (len < 10 || len > 60) { tests.push('warn'); return { status: 'warn', text: `${len} characters long (recommended: 10-60).` }; }
+        tests.push('pass');
+        return { status: 'pass', text: `${len} characters long.` };
+    };
+
+    const checkDescription = (doc, tests) => {
+        const desc = doc.querySelector('meta[name="description"]');
+        if (!desc || !desc.content) { tests.push('fail'); return { status: 'fail', text: 'Missing meta description.' }; }
+        const len = desc.content.length;
+        if (len < 50 || len > 160) { tests.push('warn'); return { status: 'warn', text: `${len} characters long (recommended: 50-160).` }; }
+        tests.push('pass');
+        return { status: 'pass', text: `${len} characters long.` };
+    };
+
+    const checkHeadings = (doc, tests) => {
+        const h1s = Array.from(doc.querySelectorAll('h1'));
+        const h2s = Array.from(doc.querySelectorAll('h2'));
+        let status = 'fail';
+        if (h1s.length === 1) { status = 'pass'; tests.push('pass'); }
+        else { tests.push('fail'); }
+        return {
+            status,
+            h1Count: h1s.length,
+            h2Count: h2s.length,
+            h1Texts: h1s.map(h => h.innerText.trim()),
+            h2Texts: h2s.map(h => h.innerText.trim())
+        };
+    };
+
+    const checkImageAlts = (doc, tests) => {
+        const images = Array.from(doc.querySelectorAll('img'));
+        if (images.length === 0) { tests.push('pass'); return { status: 'pass', text: 'No images found on the page.' }; }
+        const missingAlts = images.filter(img => !img.alt || img.alt.trim() === '');
+        if (missingAlts.length > 0) { tests.push('fail'); return { status: 'fail', text: `${missingAlts.length} of ${images.length} images are missing alt text.` }; }
+        tests.push('pass');
+        return { status: 'pass', text: `All ${images.length} images have alt text.` };
+    };
+    
+    const checkTextRatio = (doc, tests) => {
+        const textLength = doc.body.innerText.trim().length;
+        const htmlLength = doc.documentElement.outerHTML.length;
+        const ratio = htmlLength > 0 ? Math.round((textLength / htmlLength) * 100) : 0;
+        if (ratio < 15) { tests.push('warn'); return { status: 'warn', text: `${ratio}% (This is low, consider adding more content).` }; }
+        tests.push('pass');
+        return { status: 'pass', text: `${ratio}% (Good content-to-HTML ratio).` };
+    };
+
+    const checkLinks = (doc, domain, base, tests) => {
+        const links = Array.from(doc.querySelectorAll('a[href]'));
+        let internal = 0, external = 0;
+        links.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
+                try {
+                    const linkUrl = new URL(href, base);
+                    if (linkUrl.hostname.replace('www.','') === domain.replace('www.','')) internal++; else external++;
+                } catch(e) { /* Ignore invalid URLs */ }
+            }
+        });
+        tests.push('pass');
+        return { status: 'pass', internal, external };
+    };
+
+    const checkSocialTags = (doc, tests) => {
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        const ogImage = doc.querySelector('meta[property="og:image"]');
+        if (ogTitle && ogDesc && ogImage) { tests.push('pass'); return { status: 'pass', text: 'All major Open Graph tags are present.', data: { title: ogTitle.content, desc: ogDesc.content, image: ogImage.content } }; }
+        tests.push('warn');
+        return { status: 'warn', text: 'Missing some Open Graph tags.', data: { title: ogTitle?.content, desc: ogDesc?.content, image: ogImage?.content }};
+    };
+
+    const checkLang = (doc, tests) => { if(doc.documentElement.lang){ tests.push('pass'); return { status: 'pass', text: `Lang attribute is "${doc.documentElement.lang}".` }; } else { tests.push('fail'); return { status: 'fail', text: 'HTML lang attribute is missing.' }; } };
+    const checkCanonical = (doc, tests) => { if(doc.querySelector('link[rel="canonical"]')){ tests.push('pass'); return { status: 'pass', text: 'Canonical tag is present.' }; } else { tests.push('warn'); return { status: 'warn', text: 'Canonical tag is missing.' }; } };
+    const checkIndexability = (doc, tests) => { const robots = doc.querySelector('meta[name="robots"]'); if (robots && robots.content.toLowerCase().includes('noindex')) { tests.push('fail'); return { status: 'fail', text: 'Page is set to "noindex".' }; } tests.push('pass'); return { status: 'pass', text: 'Page is indexable.' }; };
+    const checkDoctype = (doc, tests) => { if(doc.doctype){ tests.push('pass'); return { status: 'pass', text: `HTML5 Doctype is present.`}; } else { tests.push('fail'); return { status: 'fail', text: 'Doctype is missing.'}; } };
+    const checkViewport = (doc, tests) => { if(doc.querySelector('meta[name="viewport"]')){ tests.push('pass'); return { status: 'pass', text: 'Viewport meta tag is present.' }; } else { tests.push('fail'); return { status: 'fail', text: 'Viewport tag is missing.'}; } };
+
+
+    // --- DISPLAY FUNCTIONS ---
+    function displayReport(results) {
+        const scoreColor = results.overallScore > 85 ? 'text-green-600' : results.overallScore > 60 ? 'text-yellow-500' : 'text-red-600';
+        let reportHTML = `
+            <div class="bg-white rounded-lg shadow-xl p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center mb-4">On-Page Results</h2>
+                <div class="text-center mb-8">
+                    <p class="text-7xl font-bold ${scoreColor}">${results.overallScore}%</p>
+                    <p class="text-gray-500">Overall On-Page Score</p>
+                </div>
+                <div class="space-y-4">
+        `;
+        
+        reportHTML += createAccordionSection('Content Analysis', [
+            { title: 'Title Tag', ...results.title },
+            { title: 'Meta Description', ...results.description },
+            { title: 'Text/HTML Ratio', ...results.textRatio },
+            { title: 'Image Alt Text', ...results.imageAlts },
+        ]);
+        
+        reportHTML += createAccordionSection('Link Analysis', [
+             { title: 'Internal Links', status: 'info', text: `${results.links.internal} found` },
+             { title: 'External Links', status: 'info', text: `${results.links.external} found` }
+        ]);
+
+        reportHTML += createAccordionSection('Heading Structure', [
+            { title: 'H1 Tags', status: results.headings.status, text: `${results.headings.h1Count} found.`, details: results.headings.h1Texts },
+            { title: 'H2 Tags', status: 'info', text: `${results.headings.h2Count} found.`, details: results.headings.h2Texts },
+        ]);
+
+        reportHTML += createAccordionSection('Social Media Tags (Open Graph)', [
+            { title: 'og:title', status: results.socialTags.data.title ? 'info' : 'fail', text: results.socialTags.data.title || 'Missing' },
+            { title: 'og:description', status: results.socialTags.data.desc ? 'info' : 'fail', text: results.socialTags.data.desc || 'Missing' },
+            { title: 'og:image', status: results.socialTags.data.image ? 'info' : 'fail', text: results.socialTags.data.image || 'Missing' },
+        ]);
+
+        reportHTML += createAccordionSection('Technical & Accessibility', [
+            { title: 'Indexability', ...results.indexability },
+            { title: 'Canonical Tag', ...results.canonical },
+            { title: 'HTML Language', ...results.lang },
+            { title: 'Doctype', ...results.doctype },
+            { title: 'Mobile Viewport', ...results.viewport },
+        ]);
+
+        reportHTML += `</div></div>`;
+        reportContainer.innerHTML = reportHTML;
+        
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.classList.toggle('open');
+                const content = header.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+    }
+
+    function createAccordionSection(title, checks) {
+        let contentHTML = checks.map(check => {
+            const icon = { pass: '✔️', fail: '❌', warn: '⚠️', info: 'ℹ️' }[check.status];
+            const color = { pass: 'text-green-700', fail: 'text-red-700', warn: 'text-yellow-600', info: 'text-blue-700' }[check.status];
+            
+            let detailsHTML = '';
+            if (check.details && check.details.length > 0) {
+                 detailsHTML = `<ul class="list-disc list-inside mt-2 text-sm text-gray-600 pl-4 bg-gray-50 p-2 rounded">` +
+                                check.details.map(d => `<li>${d}</li>`).join('') +
+                               `</ul>`;
+            }
+
+            return `<div class="py-3 border-b border-gray-100 last:border-b-0">
+                        <p class="font-semibold ${color}"><span class="mr-2">${icon}</span>${check.title}: <span class="font-normal text-gray-700">${check.text}</span></p>
+                        ${detailsHTML}
+                    </div>`;
+        }).join('');
+
+        return `
+            <div class="border border-gray-200 rounded-lg">
+                <div class="accordion-header bg-gray-50 hover:bg-gray-100 p-4 flex justify-between items-center cursor-pointer">
+                    <h3 class="text-xl font-semibold">${title}</h3>
+                    <span class="arrow text-2xl font-bold transform">▼</span>
+                </div>
+                <div class="accordion-content bg-white p-4">
+                    ${contentHTML}
+                </div>
+            </div>
+        `;
+    }
+  </script>
+</body>
+</html>
